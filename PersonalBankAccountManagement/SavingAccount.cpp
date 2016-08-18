@@ -2,12 +2,14 @@
 using namespace std;
 #include "SavingAccount.h"
 
+double SavingAccount::total = 0;
 void SavingAccount::recode(int date, double amount)
 {
 	accumulation = accumulate(date);
 	lastDate = date;
 	amount = floor(amount * 100 + 0.5) / 100;			//保留小数位后两位
 	balance += amount;
+	total += amount;
 	cout <<"开户起第" << date << "天\t#" << id << "\t" << amount << "\t" << balance << endl;
 }
 
