@@ -8,7 +8,7 @@ void SavingAccount::recode(int date, double amount)
 	lastDate = date;
 	amount = floor(amount * 100 + 0.5) / 100;			//保留小数位后两位
 	balance += amount;
-	cout << date << "\t#" << id << "\t" << amount << "\t" << balance << endl;
+	cout <<"开户起第" << date << "天\t#" << id << "\t" << amount << "\t" << balance << endl;
 }
 
 double SavingAccount::accumulate(int date)
@@ -18,7 +18,7 @@ double SavingAccount::accumulate(int date)
 
 SavingAccount::SavingAccount(int date, int id, double rate):id(id),balance(0),rate(rate),lastDate(date),accumulation(0)
 {
-	cout << date << "\t#" << id << " is created" << endl;
+	cout << "第" << date << "天\t#" << id << " is created" << endl;
 }
 
 int SavingAccount::getId()
@@ -59,4 +59,9 @@ void SavingAccount::settle(int date)
 	if (interest != 0)
 		recode(date, interest);
 	accumulation = 0;
+}
+
+void SavingAccount::show()
+{
+	cout << "#" << id << "\tbalance：" << balance << endl;
 }

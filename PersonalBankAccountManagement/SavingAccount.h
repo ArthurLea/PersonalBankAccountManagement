@@ -20,5 +20,6 @@ public:
 	void deposit(int date, double amount);//deposit amount
 	void withdraw(int date, double amount);//withdraw amount
 	void settle(int date);//settled when the date is arrived of the fixed id
+	void show();//显示账户信息
 };
 
