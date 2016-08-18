@@ -11,7 +11,7 @@ void SavingAccount::recode(int date, double amount)
 	cout <<"开户起第" << date << "天\t#" << id << "\t" << amount << "\t" << balance << endl;
 }
 
-double SavingAccount::accumulate(int date)
+double SavingAccount::accumulate(int date) const
 {
 	return accumulation + balance*(date - lastDate);
 }
@@ -21,19 +21,24 @@ SavingAccount::SavingAccount(int date, int id, double rate):id(id),balance(0),ra
 	cout << "第" << date << "天\t#" << id << " is created" << endl;
 }
 
-int SavingAccount::getId()
+int SavingAccount::getId() const
 {
 	return id;
 }
 
-double SavingAccount::getBalance()
+double SavingAccount::getBalance() const
 {
 	return balance;
 }
 
-double SavingAccount::getRate()
+double SavingAccount::getRate() const
 {
 	return rate;
+}
+
+double SavingAccount::getTotal()
+{
+	return total;
 }
 
 SavingAccount::~SavingAccount()

@@ -1,4 +1,13 @@
 #pragma once
+/*
+#pragma once is equal with:
+	#ifndef _SAVINGACCOUNT_H_
+	#define _SAVINGACCOUNT_H_
+	
+	.h中的内容
+
+	#endif
+*/
 class SavingAccount				//存储账户类
 {
 private:
@@ -7,14 +16,16 @@ private:
 	double rate;				//存款的年利率
 	int lastDate;				//上次变更余额的时期
 	double accumulation;		//余额按日累加之和
+	static double total;		//所用账户的总金额
 private:
 	void recode(int date, double amount);
-	double accumulate(int date);
+	double accumulate(int date) const;
 public:
 	SavingAccount(int date,int id,double rate);
-	int getId();
-	double getBalance();
-	double getRate();
+	int getId() const;
+	double getBalance() const;
+	double getRate() const;
+	static double getTotal();
 	~SavingAccount();
 
 	void deposit(int date, double amount);//deposit amount
